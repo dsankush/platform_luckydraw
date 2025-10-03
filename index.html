@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Cards</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Full-page layout with two background images */
+    .full-page {
+      width: 100vw;
+      height: 100vh;
+      background: 
+        url("home_screen_1.jpg") top center / cover no-repeat, 
+        url("home_screen_2.png") bottom center / cover no-repeat;
+      background-size: 100% 50%, 100% 50%;
+      background-repeat: no-repeat, no-repeat;
+      background-position: top, bottom;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Card container */
+    .card-container {
+      display: flex;
+      gap: 10px;
+      position: absolute;
+      top: 53%; /* Slightly above the middle of the second image */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%; /* Uses more of the screen width */
+      justify-content: space-evenly;
+      flex-wrap: wrap; /* Cards wrap if necessary */
+    }
+
+    /* Individual card */
+    .card {
+      width: 180px;
+      height: 300px;
+      border-radius: 15px;
+      border: 3px solid rgba(255, 255, 150, 0.8); /* Light yellow border */
+      border-radius: 15px; /* Rounded corners */
+      box-shadow: 0 0 10px rgba(255, 255, 150, 0.5); /* Soft glow effect */
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.3s ease-in-out;
+      animation: jump 2s infinite ease-in-out, glow 1.5s infinite alternate; /* Both effects */
+
+    }
+
+    /* Hover effect - glowing effect & bounce */
+    .card:hover {
+      transform: scale(1.15);
+      animation: none; /* Stops zoom effect when hovered */
+    }
+
+    /* Golden glowing effect */
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border-radius: 20px;
+      background: radial-gradient(circle, rgba(255, 215, 0,0.8) 0%, rgba(255, 215, 0,0.4) 50%, transparent 100%);
+      z-index: -1;
+      filter: blur(20px);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    /* Button images */
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* Subtle zoom-in and zoom-out effect */
+
+    @keyframes subtleZoom {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); } /* Slightly enlarges */
+      100% { transform: scale(1); }
+    }
+/*Jumping*/
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0); /* Normal position */
+  }
+  50% {
+    transform: translateY(-8px); /* Moves slightly up */
+  }
+}
+
+/* Glowing */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  }
+}
+
+  </style>
+</head>
+
+
+
+<body>
+
+  <div class="full-page">
+    <!-- Card Container (Utilizing Full Width) -->
+    <div class="card-container">
+      <a href="C:\Users\aspir\Downloads\luckydraw_system/page1/page1.html" class="card">
+    <img src="source/card1.jpg" alt="Card 1">
+  </a>
+  <a href="C:\Users\aspir\Downloads\luckydraw_system/page2/page2.html" class="card">
+    <img src="source/card2.jpg" alt="Card 2">
+  </a>
+  <a href="C:\Users\aspir\Downloads\luckydraw_system/page3/page3.html" class="card">
+    <img src="source/card3.jpg" alt="Card 3">
+  </a>
+  <a href="C:\Users\aspir\Downloads\luckydraw_system/page4/page4.html" class="card">
+    <img src="source/card4.jpg" alt="Card 4">
+  </a>
+  <a href="C:\Users\aspir\Downloads\luckydraw_system/page5/page5.html" class="card">
+    <img src="source/card5.jpeg" alt="Card 5">
+  </a>
+  <a href="C:\Users\aspir\Downloads\luckydraw_system/page6/page6.html" class="card">
+    <img src="source/card6.jpg" alt="Card 6">
+  </a>
+  <a href="C:\Users\aspir\Downloads\luckydraw_system/page7/page7.html" class="card">
+    <img src="source/card7.jpg" alt="Card 7">
+  </a>
+
+    </div>
+  </div>
+
+</body>
+</html>
